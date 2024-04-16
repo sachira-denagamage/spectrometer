@@ -53,7 +53,7 @@ def plot_intensities(intensities_dict, save_dir):
 
         fig, axs = plt.subplots(2, 1, figsize=(10, 10))
 
-        sns.heatmap(intensities, cmap="vlag", annot=True, fmt=".1f", ax=axs[0])
+        sns.heatmap(intensities, cmap="vlag", annot=True, fmt=".2f", ax=axs[0])
         axs[0].set_xlabel('Column')
         axs[0].set_ylabel('Row')
         axs[0].set_title(f'Flux Heatmap (uE) for {led_wavelength}nm')

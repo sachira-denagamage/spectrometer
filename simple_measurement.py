@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 params = {
     'acq_delay': 400,  # uS
     'integration_time': 1000000,  # uS
-    'scans_to_average': 10,
+    'scans_to_average': 5,
     'boxcar_width': 5,
     'electric_dark_correction_usage': True,
     'nonlinearity_correction_usage': True
