@@ -3,6 +3,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+*.csv
+*.png
+flypez-measurements/
+projector-measurements/
+
 # C extensions
 *.so
 
