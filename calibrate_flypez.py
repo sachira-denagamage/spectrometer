@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 import os
 import re
 
-folderpath = '/Users/sachira/Desktop/Code/spectrometer/flypez-measurements/240415'
-led_wavelengths = ['415', '455', '505', '617', 'white']
+folderpath = '/Users/sachira/Desktop/Code/spectrometer/flypez-measurements/240426'
+led_wavelengths = ['415', '455', '565', '617', 'white']
 colors = ['violet','blue','green','orange','grey']
 violet_y = None
 x_values = []

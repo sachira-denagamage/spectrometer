@@ -6,11 +6,16 @@ from datetime import datetime
 import utilities
 
 def led_measurement(device, calibration, led_wavelength, max_current):
-    for current in range(0, max_current + 1, 100):
+    current = 0
+    while current <= max_current:
         ready = ''
         while ready.lower() != 'y':
             ready = input("Ready for measurement at current {}mA? y/n ".format(current))
-
+            if ready.lower() == 'n':
+                repeat = input("Do you want to repeat the previous measurement? y/n ")
+                if repeat.lower() == 'y':
+                    current -= 100
+                    continue
         spectra, wavelengths = utilities.take_measurement(device, calibration)
             
         df = pd.DataFrame({
@@ -29,6 +34,8 @@ def led_measurement(device, calibration, led_wavelength, max_current):
 
         filename = f"{led_wavelength}nm_{current}mA.csv"
         df.to_csv(os.path.join(sub_dir_path, filename), index=False)
+
+        current += 100
 
 def plot_spectra(led_wavelength, max_current):
     date_str = datetime.now().strftime("%y%m%d")
@@ -65,7 +72,7 @@ def plot_spectra(led_wavelength, max_current):
 
 params = {
     'acq_delay': 400,  # uS
-    'integration_time': 1000000,  # uS 10000000
+    'integration_time': 10000000,  # uS 10 seconds for 415, 8 seconds for 455, 10 seconds for 565, 4 seconds for 617, 10 seconds for white
     'scans_to_average': 5,
     'boxcar_width': 5,
     'electric_dark_correction_usage': True,

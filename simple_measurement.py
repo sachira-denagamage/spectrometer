@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 
 params = {
     'acq_delay': 400,  # uS
-    'integration_time': 1000000,  # uS
-    'scans_to_average': 5,
+    'integration_time': 10000000,  # uS
+    'scans_to_average': 1,
     'boxcar_width': 5,
     'electric_dark_correction_usage': True,
     'nonlinearity_correction_usage': True
